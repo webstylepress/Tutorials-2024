@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>WEBSTYLEPRESS</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+		<style>
+			img {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<br />
+		<br />
+
+		<div class="container">DIV TO IMAGE (PNG/JPG)</div>
+
+		<br />
+		<br />
+
+		<div class="container">
+			<div
+				style="
+					width: 100%;
+					margin: 0 auto;
+					border: 1px solid #ddd;
+					padding: 20px;
+					font-family: Arial, sans-serif;
+					background-color: #eee;
+				"
+				id="design">
+				<div>
+					<h1 style="font-size: 32px; font-weight: bold">Receipt</h1>
+				</div>
+
+				<div style="padding: 15px 0">
+					<table style="width: 100%; margin-bottom: 20px">
+						<tr>
+							<td style="color: #888">Date:</td>
+							<td style="text-align: right">March 5, 2024</td>
+						</tr>
+						<tr>
+							<td style="color: #888">Receipt #:</td>
+							<td style="text-align: right">12345</td>
+						</tr>
+					</table>
+
+					<hr style="border: 0; border-top: 1px solid #ddd" />
+
+					<table style="width: 100%; margin-bottom: 10px; font-weight: bold">
+						<tr>
+							<td style="color: #888">Description</td>
+							<td style="text-align: right; color: #888">Amount</td>
+						</tr>
+					</table>
+
+					<table style="width: 100%; margin-bottom: 10px">
+						<tr>
+							<td>Item 1</td>
+							<td style="text-align: right">$50.00</td>
+						</tr>
+						<tr>
+							<td>Item 2</td>
+							<td style="text-align: right">$30.00</td>
+						</tr>
+						<tr>
+							<td>Item 3</td>
+							<td style="text-align: right">$20.00</td>
+						</tr>
+					</table>
+
+					<hr style="border: 0; border-top: 1px solid #ddd" />
+
+					<table style="width: 100%; font-weight: bold">
+						<tr>
+							<td>Total</td>
+							<td style="text-align: right">$100.00</td>
+						</tr>
+					</table>
+				</div>
+
+				<div style="text-align: center; padding: 10px 0">
+					<p style="color: #888; margin: 0">Thank you for your purchase!</p>
+				</div>
+			</div>
+		</div>
+
+		<br />
+		<br />
+
+		<div class="container">
+			<div id="output"></div>
+		</div>
+
+		<br />
+		<br />
+		<br />
+		<br />
+
+		<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+		<script>
+			html2canvas(document.getElementById('design')).then((canvas) => {
+				const img = canvas.toDataURL('image/png');
+				// const img = canvas.toDataURL('image/jpeg', 1);
+				// document.write('<img src="' + img + '"/>');
+				const imageElement = document.createElement('img');
+				imageElement.src = img;
+				document.getElementById('output').appendChild(imageElement);
+			});
+		</script>
+	</body>
+</html>
