@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>WebStylePress</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<br />
+		<br />
+
+		<div class="container">
+			<div class="wrapper">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 200 200"
+					width="200px"
+					height="200px"></svg>
+			</div>
+		</div>
+
+		<br />
+		<br />
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				// FIRST METHOD
+				$('svg').append(
+					'<polygon points="50,15 90,85 10,85" stroke="black" stroke-width="2" fill="orange"/>',
+				);
+				$('.wrapper').html($('.wrapper').html());
+
+				// $('body').html($('body').html());
+				// FIRST METHOD ENDS
+
+				// SECOND METHOD
+				/*
+				var svg = $('svg')[0];
+				var polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+				polygon.setAttribute("points", "50,15 90,85 10,85");
+				polygon.setAttribute("stroke", "black");
+				polygon.setAttribute("stroke-width", "2");
+				polygon.setAttribute("fill", "orange");
+				svg.appendChild(polygon);
+				*/
+				// SECOND METHOD ENDS
+			});
+		</script>
+	</body>
+</html>
