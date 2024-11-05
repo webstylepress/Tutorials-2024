@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>Template</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+			integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+	</head>
+	<body>
+		<br />
+		<br />
+
+		<div class="container">
+			<div class="form-group">
+				<input
+					type="email"
+					class="form-control form-control-lg"
+					id="email"
+					placeholder="Email address..." />
+			</div>
+			<button type="submit" class="btn btn-primary btn-lg">
+				Confirm Email
+			</button>
+			<div class="mt-3 h3" id="output"></div>
+		</div>
+
+		<br />
+		<br />
+
+		<script>
+			function validateEmail() {
+				const emailInput = document.getElementById('email');
+				const email = emailInput.value;
+				const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+				if (emailRegex.test(email)) {
+					document.getElementById('output').textContent =
+						'Valid email address!';
+					document.getElementById('output').style.color = 'green';
+				} else {
+					document.getElementById('output').textContent =
+						'Invalid email address!';
+					document.getElementById('output').style.color = 'red';
+				}
+			}
+			document
+				.querySelector('button')
+				.addEventListener('click', function (event) {
+					event.preventDefault(); // Prevent form submission
+					validateEmail();
+				});
+		</script>
+	</body>
+</html>
