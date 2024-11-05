@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>Template</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+		<style>
+			.icons img,
+			.icons svg {
+				max-width: 100px;
+				max-height: 100px;
+				margin: 10px;
+			}
+			.fb:hover path {
+				fill: blue;
+			}
+			.yt:hover path {
+				fill: red;
+			}
+		</style>
+	</head>
+	<body>
+		<br />
+		<br />
+
+		<div class="container text-center">
+			<div class="icons">
+				<img src="facebook.svg" class="fb" />
+				<img src="youtube.svg" class="yt" />
+			</div>
+		</div>
+
+		<br />
+		<br />
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script>
+			jQuery('.icons img').each(function () {
+				const $img = jQuery(this);
+				const imgID = $img.attr('id');
+				const imgClass = $img.attr('class');
+				const imgURL = $img.attr('src');
+				jQuery.get(
+					imgURL,
+					(data) => {
+						let $svg = jQuery(data).find('svg');
+						if (imgID) $svg.attr('id', imgID);
+						if (imgClass) $svg.attr('class', `${imgClass} replaced-svg`);
+						$svg.removeAttr('xmlns:a');
+						$img.replaceWith($svg);
+					},
+					'xml',
+				);
+			});
+		</script>
+	</body>
+</html>
