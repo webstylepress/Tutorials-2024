@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Theme Switching with Custom Properties</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body data-theme="">
+		<div class="container">
+			<h1>Theme Switcher</h1>
+			<p>Click the button below to switch themes.</p>
+			<button class="theme-switcher">Switch Theme</button>
+		</div>
+		<script>
+			const button = document.querySelector('.theme-switcher');
+			button.addEventListener('click', () => {
+				document.body.dataset.theme =
+					document.body.dataset.theme === 'dark' ? '' : 'dark';
+			});
+		</script>
+	</body>
+</html>
