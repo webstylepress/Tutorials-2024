@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>webstylepress</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+
+		<style>
+			body {
+				font-size: 22px;
+			}
+			@property --w-full {
+				syntax: '<length>';
+				inherits: true;
+				initial-value: 100vw;
+			}
+			@property --h-full {
+				syntax: '<length>';
+				inherits: true;
+				initial-value: 100vh;
+			}
+			:root {
+				--s-width: tan(atan2(var(--w-full), 1px));
+				--s-height: tan(atan2(var(--h-full), 1px));
+			}
+			.container::after {
+				content: counter(w) 'x' counter(h);
+				counter-reset: w var(--s-width) h var(--s-height);
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<br />
+		<br />
+
+		<div class="container">Screen Width & Height...</div>
+
+		<br />
+		<br />
+	</body>
+</html>
