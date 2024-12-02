@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tailwind Theme Switcher</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-white text-black">
+		<div class="container mx-auto p-4">
+			<h1 class="text-2xl font-bold">Tailwind Theme Switcher</h1>
+			<p class="mt-2">Choose a theme:</p>
+			<div class="mt-4 mb-4 space-x-2">
+				<button
+					class="theme-button bg-gray-900 text-white px-4 py-2 rounded"
+					data-theme="dark">
+					Dark
+				</button>
+				<button
+					class="theme-button bg-blue-500 text-white px-4 py-2 rounded"
+					data-theme="blue">
+					Blue
+				</button>
+				<button
+					class="theme-button bg-green-500 text-white px-4 py-2 rounded"
+					data-theme="green">
+					Green
+				</button>
+				<button
+					class="theme-button bg-white text-black px-4 py-2 rounded border"
+					data-theme="light">
+					Light
+				</button>
+			</div>
+			<p class="mb-3">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, eaque
+				atque. Dicta id quo consequuntur amet beatae officiis culpa
+				voluptatibus. Inventore maxime voluptatibus accusantium eaque, amet
+				error sapiente nemo sint?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, eaque
+				atque. Dicta id quo consequuntur amet beatae officiis culpa
+				voluptatibus. Inventore maxime voluptatibus accusantium eaque, amet
+				error sapiente nemo sint?
+			</p>
+		</div>
+
+		<script>
+			const themes = {
+				light: {
+					background: 'bg-white',
+					text: 'text-black',
+				},
+				dark: {
+					background: 'bg-gray-900',
+					text: 'text-white',
+				},
+				blue: {
+					background: 'bg-blue-500',
+					text: 'text-white',
+				},
+				green: {
+					background: 'bg-green-500',
+					text: 'text-white',
+				},
+			};
+			const themeButtons = document.querySelectorAll('.theme-button');
+			const body = document.body;
+			themeButtons.forEach((button) => {
+				button.addEventListener('click', () => {
+					const theme = button.dataset.theme;
+
+					// Remove all existing theme classes
+					body.className = '';
+
+					// Add the new theme classes
+					body.classList.add(themes[theme].background, themes[theme].text);
+				});
+			});
+		</script>
+	</body>
+</html>
