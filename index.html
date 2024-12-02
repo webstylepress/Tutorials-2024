@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>WebStylePress</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<br />
+		<br />
+		<div class="container">
+			<div class="output">Width & Height</div>
+		</div>
+		<br />
+		<br />
+		<script>
+			const output = document.querySelector('.output');
+			const showSize = () => {
+				const width = window.innerWidth;
+				const height = window.innerHeight;
+				output.textContent = `Width & Height: ${width} x ${height}`;
+			};
+			// Display Size
+			showSize();
+			// Recalculate on resize
+			window.addEventListener('resize', showSize);
+		</script>
+	</body>
+</html>
