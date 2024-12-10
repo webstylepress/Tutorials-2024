@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CSS Gradient Generator</title>
+		<style>
+			:root {
+				--start-color: #ff7f50;
+				--end-color: #1e90ff;
+				--gradient-angle: 90deg;
+			}
+
+			body {
+				background: linear-gradient(
+					var(--gradient-angle),
+					var(--start-color),
+					var(--end-color)
+				);
+				margin: 0;
+				font-family: Arial, sans-serif;
+				min-height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: background 0.3s ease;
+			}
+
+			.container {
+				text-align: center;
+				padding: 20px;
+				background: #fff;
+				border: 1px solid #ddd;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			}
+
+			input[type='color'],
+			input[type='range'],
+			textarea,
+			button {
+				display: block;
+				margin: 10px auto;
+			}
+
+			textarea {
+				width: 90%;
+				height: 80px;
+				font-family: monospace;
+				resize: none;
+			}
+
+			button {
+				padding: 10px 20px;
+				font-size: 16px;
+				cursor: pointer;
+			}
+
+			#angle-display {
+				display: block;
+				margin-top: -8px;
+				margin-bottom: 10px;
+				font-size: 14px;
+				color: #555;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>CSS Gradient Generator</h1>
+			<label for="start-color">Start Color:</label>
+			<input type="color" id="start-color" value="#ff7f50" />
+
+			<label for="end-color">End Color:</label>
+			<input type="color" id="end-color" value="#1e90ff" />
+
+			<label for="gradient-angle">Gradient Angle (degrees):</label>
+			<input type="range" id="gradient-angle" min="0" max="360" value="90" />
+			<span id="angle-display">90°</span>
+
+			<button id="random-button">Random Gradient</button>
+
+			<textarea id="css-output" readonly></textarea>
+			<button id="copy-button">Copy CSS</button>
+		</div>
+		<script>
+			const startColorInput = document.getElementById('start-color');
+			const endColorInput = document.getElementById('end-color');
+			const gradientAngleInput = document.getElementById('gradient-angle');
+			const randomButton = document.getElementById('random-button');
+			const copyButton = document.getElementById('copy-button');
+			const cssOutput = document.getElementById('css-output');
+			const angleDisplay = document.getElementById('angle-display');
+
+			const generateGradient = () => {
+				const startColor = startColorInput.value;
+				const endColor = endColorInput.value;
+				const angle = gradientAngleInput.value;
+
+				const gradientCSS = `linear-gradient(${angle}deg, ${startColor}, ${endColor})`;
+				document.body.style.background = gradientCSS;
+				cssOutput.value = `background: ${gradientCSS};`;
+			};
+
+			// Initialize with default values
+			generateGradient();
+
+			// Auto-update gradient on input changes
+			startColorInput.addEventListener('input', generateGradient);
+			endColorInput.addEventListener('input', generateGradient);
+			gradientAngleInput.addEventListener('input', () => {
+				angleDisplay.textContent = `${gradientAngleInput.value}°`;
+				generateGradient();
+			});
+
+			// Generate random gradient on button click
+			const randomColor = () => {
+				return `#${Math.floor(Math.random() * 16777215)
+					.toString(16)
+					.padStart(6, '0')}`;
+			};
+			const generateRandomGradient = () => {
+				startColorInput.value = randomColor();
+				endColorInput.value = randomColor();
+				gradientAngleInput.value = Math.floor(Math.random() * 361);
+				angleDisplay.textContent = `${gradientAngleInput.value}°`;
+				generateGradient();
+			};
+			randomButton.addEventListener('click', generateRandomGradient);
+
+			// Copy CSS code on button click
+			const copyToClipboard = () => {
+				cssOutput.select();
+				document.execCommand('copy');
+				alert('CSS code copied to clipboard!');
+			};
+			copyButton.addEventListener('click', copyToClipboard);
+		</script>
+	</body>
+</html>
