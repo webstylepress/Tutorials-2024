@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Real-time Theme Adjustment Panel</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+		<style>
+			:root {
+				--background-color: #ffffff;
+				--text-color: #000000;
+				--accent-color: #007bff;
+			}
+
+			body {
+				background-color: var(--background-color);
+				color: var(--text-color);
+				text-align: center;
+				padding-top: 20px;
+			}
+
+			input[type='color'] {
+				margin: 10px 0;
+				cursor: pointer;
+			}
+
+			.box {
+				background-color: var(--accent-color);
+				color: var(--text-color);
+				margin-top: 20px;
+				height: 150px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 8px;
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Real-Time Theme Adjustment</h1>
+			<label>Background Color:</label>
+			<input type="color" id="background-color" value="#ffffff" />
+			<br />
+			<label>Text Color:</label>
+			<input type="color" id="text-color" value="#000000" />
+			<br />
+			<label>Accent Color:</label>
+			<input type="color" id="accent-color" value="#007BFF" />
+			<div class="box">Box</div>
+		</div>
+		<script>
+			const backgroundColorInput = document.getElementById('background-color');
+			const textColorInput = document.getElementById('text-color');
+			const accentColorInput = document.getElementById('accent-color');
+
+			backgroundColorInput.addEventListener('input', (event) => {
+				document.documentElement.style.setProperty(
+					'--background-color',
+					event.target.value,
+				);
+			});
+
+			textColorInput.addEventListener('input', (event) => {
+				document.documentElement.style.setProperty(
+					'--text-color',
+					event.target.value,
+				);
+			});
+
+			accentColorInput.addEventListener('input', (event) => {
+				document.documentElement.style.setProperty(
+					'--accent-color',
+					event.target.value,
+				);
+			});
+		</script>
+	</body>
+</html>
