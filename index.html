@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>WSP</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+		<style>
+			.parent {
+				padding: 10px;
+				border: 1px solid #000;
+			}
+			.parent .inner {
+				padding: 10px;
+				color: #fff;
+				background-color: #000;
+				border: 1px solid #000;
+			}
+			.parent:has(.inner) {
+				background-color: yellow;
+			}
+
+			.parent2 {
+				padding: 10px;
+				border: 1px solid #000;
+			}
+			.inner2 {
+				padding: 10px;
+				background-color: lightcyan;
+				border: 1px solid #000;
+			}
+			.parent2:focus-within {
+				background-color: lightsalmon;
+			}
+		</style>
+	</head>
+	<body>
+		<br />
+		<br />
+
+		<div class="container">
+			<div class="parent">
+				This is Parent / Outer DIV
+				<div class="inner active">Inner DIV</div>
+			</div>
+
+			<br />
+			<br />
+
+			<div class="parent2">
+				Parent / Outer DIV
+				<div class="inner2" tabindex="0">
+					Click or Focus to change parent element / Inner DIV
+				</div>
+			</div>
+		</div>
+
+		<br />
+		<br />
+	</body>
+</html>
