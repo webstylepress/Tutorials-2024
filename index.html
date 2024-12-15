@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>WSP</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			@media all and (min-width: 900px) {
+				.container {
+					opacity: 0;
+					animation: scrollReveal ease-in-out forwards;
+					animation-timeline: view();
+					/* animation-range: cover; */
+					/* animation-range: 100px 500px; */
+					animation-range-start: 100px;
+					animation-range-end: 500px;
+					transform: scale(0.6) translateY(100px);
+				}
+				@keyframes scrollReveal {
+					to {
+						transform: scale(1) translateY(0);
+						opacity: 1;
+					}
+				}
+			}
+		</style>
+	</head>
+	<body class="m-0 p-0 box-border">
+		<!-- Section 1 -->
+		<section
+			class="h-auto sm:h-screen py-10 bg-gray-800 flex items-center justify-center text-white">
+			<div class="container text-center px-4">
+				<h1 class="text-5xl md:text-6xl font-bold mb-4">
+					Lorem ipsum dolor sit amet
+				</h1>
+				<p class="text-lg md:text-xl leading-relaxed max-w-[900px] mx-auto">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+					nam eveniet dicta ipsam eum eos eius iste facere, sed cum explicabo
+					magnam dolores magni soluta odit enim, natus officia hic. Lorem ipsum
+					dolor sit amet consectetur adipisicing elit. Deleniti neque natus eos
+					ipsam explicabo excepturi error. Vel beatae iusto perspiciatis ducimus
+					facilis repellendus rerum quae doloribus, voluptatum consequuntur
+					tempore tenetur.
+				</p>
+			</div>
+		</section>
+
+		<!-- Section 2 -->
+		<section
+			class="h-auto sm:h-screen py-10 bg-blue-900 flex items-center justify-center text-white">
+			<div class="container text-center px-4">
+				<h1 class="text-5xl md:text-6xl font-bold mb-4">
+					Lorem ipsum dolor sit amet
+				</h1>
+
+				<p class="text-lg md:text-xl leading-relaxed max-w-[900px] mx-auto">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+					nam eveniet dicta ipsam eum eos eius iste facere, sed cum explicabo
+					magnam dolores magni soluta odit enim, natus officia hic. Lorem ipsum
+					dolor sit amet consectetur adipisicing elit. Deleniti neque natus eos
+					ipsam explicabo excepturi error. Vel beatae iusto perspiciatis ducimus
+					facilis repellendus rerum quae doloribus, voluptatum consequuntur
+					tempore tenetur.
+				</p>
+			</div>
+		</section>
+
+		<!-- Section 3 -->
+		<section
+			class="h-auto sm:h-screen py-10 bg-green-700 flex items-center justify-center text-white">
+			<div class="container text-center px-4">
+				<h1 class="text-5xl md:text-6xl font-bold mb-4">
+					Lorem ipsum dolor sit amet
+				</h1>
+				<p class="text-lg md:text-xl leading-relaxed max-w-[900px] mx-auto">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+					nam eveniet dicta ipsam eum eos eius iste facere, sed cum explicabo
+					magnam dolores magni soluta odit enim, natus officia hic. Lorem ipsum
+					dolor sit amet consectetur adipisicing elit. Deleniti neque natus eos
+					ipsam explicabo excepturi error. Vel beatae iusto perspiciatis ducimus
+					facilis repellendus rerum quae doloribus, voluptatum consequuntur
+					tempore tenetur.
+				</p>
+			</div>
+		</section>
+	</body>
+</html>
