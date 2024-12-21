@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>WebStylePress</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+		<style>
+			.stopwatch {
+				text-align: center;
+				margin-top: 50px;
+			}
+			.time {
+				font-size: 48px;
+				margin-bottom: 20px;
+			}
+			.buttons button {
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<br />
+		<br />
+
+		<div class="container stopwatch">
+			<div class="time" id="display">00:00:00</div>
+			<div class="buttons">
+				<button id="startStopBtn" class="btn btn-primary">Start</button>
+				<button id="resetBtn" class="btn btn-danger">Reset</button>
+			</div>
+		</div>
+
+		<br />
+		<br />
+
+		<script>
+			let timer,
+				startTime,
+				elapsedTime = 0,
+				isRunning = false;
+
+			const formatTime = (ms) => {
+				const s = Math.floor(ms / 1000),
+					h = Math.floor(s / 3600);
+				return [h, Math.floor((s % 3600) / 60), s % 60]
+					.map((v) => String(v).padStart(2, '0'))
+					.join(':');
+			};
+
+			const updateTime = () => {
+				document.getElementById('display').textContent = formatTime(
+					Date.now() - startTime + elapsedTime,
+				);
+			};
+
+			document.getElementById('startStopBtn').onclick = () => {
+				isRunning ? clearInterval(timer) : (startTime = Date.now());
+				elapsedTime = isRunning
+					? elapsedTime + Date.now() - startTime
+					: elapsedTime;
+				timer = isRunning ? null : setInterval(updateTime, 1000);
+				isRunning = !isRunning;
+				document.getElementById('startStopBtn').textContent = isRunning
+					? 'Stop'
+					: 'Start';
+			};
+
+			document.getElementById('resetBtn').onclick = () => {
+				clearInterval(timer);
+				isRunning = elapsedTime = 0;
+				document.getElementById('display').textContent = '00:00:00';
+				document.getElementById('startStopBtn').textContent = 'Start';
+			};
+		</script>
+	</body>
+</html>
